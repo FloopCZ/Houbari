@@ -12,9 +12,11 @@ class Program
         List<HoubarovoChovani> hraci = new List<HoubarovoChovani>();
         hraci.Add(new NahodnyHrac());
         hraci.Add(new NahodnyHrac());
-        hraci.Add(new NahodnyHrac());
-        hraci.Add(new NahodnyHrac());
-        hraci.Add(new NahodnyHrac());
+        hraci.Add(new HladovyHrac());
+        hraci.Add(new HladovyHrac());
+        hraci.Add(new HladovyHrac());
+        hraci.Add(new HladovyHrac());
+        hraci.Add(new HladovyHrac());
 
         Svet s = new Svet(32, 32, hraci);
         for (int i = 0; i < epoch; ++i)
