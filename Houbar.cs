@@ -33,7 +33,13 @@ class Houbar : Entita
     public override void krok(Svet svet)
     {
         TypEntity[,] mapa = mapaViditelnosti(svet);
-        Smer chteny_smer = chovani.pohyb(mapa, pozice);
+        Smer chteny_smer = Smer.Stuj;
+        try {
+            chteny_smer = chovani.pohyb(mapa, pozice);
+        } catch (Exception e) {
+            Console.WriteLine($"Hrac {znak} provedl neplatnou operaci: {e.ToString()}");
+            Thread.Sleep(3000);
+        }
         Pozice nova_pozice = pozice.prictiSmer(chteny_smer);
         // zkontroluj, ze timto smerem muze houbar jit
         if (svet.entitaNaPozici(nova_pozice) == null)
