@@ -9,9 +9,11 @@ Abyste vytvoříli nového houbaře, oddědíte od třídy `HoubarovoChovani` a 
 Houbař vidí všechny stromy a ploty, ovšem vlky a houby vidí jen do vzdálenosti čtyřech políček.
 
 Tato úloha je bodovaná. Podmínky jsou následující:
-- **+10 bodů**: Houbař přežije 500 epoch a sebere alespoň 12 hub
+- **+10 bodů**: Houbař přežije 500 epoch a sebere alespoň 12 hub (deadline 7. 4. 2017)
 - **+5 bodů**: Čest, sladkou odměnu a pět dalších bodů získá vítězný tým na úterní soutěži
 
 Na houbařích můžete pracovat jak sami, tak společně v týmech. V každém případě budu od každého z Vás vyžadovat podrobné vysvětlení napsaného kódu.
 
 Doporučuji si rozdělit práci v týmech na několik dílčích úkolů. Jeden člen týmu může programovat útěk před vlky, druhý člen dojití k houbě, další člen mapování prostoru apod. Následně je třeba dohromady všechny části doladit a zaintegrovat.
+
+Zdrojový kód hry si můžete stáhnout ve formátu [zip](https://github.com/FloopCZ/houbari/archive/master.zip).
