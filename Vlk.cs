@@ -25,7 +25,7 @@ class Vlk : Entita
         {  
             Entita hrac = svet.entitaNaPozici(nova_pozice);
             Console.WriteLine($"Ale ne! Vlk si dal hrace {hrac.znak} ke svacine!");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             svet.entity.Remove(hrac);
             pozice = nova_pozice;
         }

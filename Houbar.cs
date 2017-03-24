@@ -4,6 +4,7 @@ using System.Threading;
 class Houbar : Entita
 {
     public int pocet_hub = 0;
+    public int viditelnost = 4;
 
     public Houbar(Pozice p, HoubarovoChovani chovani, char znak)
       : base(p, znak, TypEntity.Houbar)
@@ -21,8 +22,8 @@ class Houbar : Entita
             // stromy a plot jsou videt vsude, ostatni jen blizko
             if (   e.typ == TypEntity.Strom
                 || e.typ == TypEntity.Plot
-                || (   Math.Abs(e.pozice.i - pozice.i) <= 3
-                    && Math.Abs(e.pozice.j - pozice.j) <= 3))
+                || (   Math.Abs(e.pozice.i - pozice.i) <= viditelnost
+                    && Math.Abs(e.pozice.j - pozice.j) <= viditelnost))
             {
                 mapa[e.pozice.i, e.pozice.j] = e.typ;
             }
@@ -38,7 +39,7 @@ class Houbar : Entita
             chteny_smer = chovani.pohyb(mapa, pozice);
         } catch (Exception e) {
             Console.WriteLine($"Hrac {znak} provedl neplatnou operaci: {e.ToString()}");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
         }
         Pozice nova_pozice = pozice.prictiSmer(chteny_smer);
         // zkontroluj, ze timto smerem muze houbar jit
@@ -50,7 +51,7 @@ class Houbar : Entita
         else if (svet.entitaNaPozici(nova_pozice).typ == TypEntity.Houba)
         {
             Console.WriteLine($"Vyborne, hrac {znak} sebral houbu!");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             svet.entity.Remove(svet.entitaNaPozici(nova_pozice));
             pozice = nova_pozice;
             ++pocet_hub;
