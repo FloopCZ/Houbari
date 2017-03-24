@@ -5,28 +5,29 @@ using System.Linq;
 class Svet
 {
     public Random rnd = new Random();
+    // velikost mapy
     public int M = 32;
     public int N = 52;
+    // pozadovany pocet hub
+    public int pocet_hub;
+    // seznam vsech entit na mape
     public List<Entita> entity = new List<Entita>();
-
-    int pocetHub()
-    {
-        return entity.Where(e => e.typ == TypEntity.Houba).Count();
-    }
 
     void obnovHouby()
     {
-        for (int i = pocetHub(); i < 20; ++i)
+        int pocet_nyni = entity.Where(e => e.typ == TypEntity.Houba).Count();
+        for (int i = pocet_nyni; i < pocet_hub; ++i)
         {
             Pozice pozice = nahodnaVolnaPozice();
             entity.Add(new Houba(pozice, 'O'));
         }
     }
 
-    public Svet(int M, int N, List<HoubarovoChovani> hraci)
+    public Svet(int M, int N, List<HoubarovoChovani> hraci, int vlci, int houby, int stromy)
     {
         this.M = M;
         this.N = N;
+        this.pocet_hub = houby;
 
         // vytvor svisly plot
         for (int i = 1; i < M - 1; ++i)
@@ -41,13 +42,13 @@ class Svet
             entity.Add(new Plot(new Pozice(M - 1, i), '-'));
         }
         // vytvor stromy
-        for (int i = 1; i < 100; ++i)
+        for (int i = 1; i < stromy; ++i)
         {
             Pozice pozice = nahodnaVolnaPozice();
             entity.Add(new Strom(pozice, 'T'));
         }
         // vytvor vlky
-        for (int i = 0; i < 10; ++i)
+        for (int i = 0; i < vlci; ++i)
         {
             Pozice pozice = nahodnaVolnaPozice();
             Vlk vlk = new Vlk(pozice, 'V');
