@@ -72,6 +72,7 @@ class Svet
         {
             entity[i].krok(this);
         }
+        obnovHouby();
     }
 
     public void ukazMapu()
